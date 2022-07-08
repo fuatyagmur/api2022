@@ -1,11 +1,15 @@
+package get_requests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
+import base_urls.JsonPlaceHolderBaseUrl;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class Get03 extends BaseUrls {
+public class Get03 extends JsonPlaceHolderBaseUrl {
 
      /*
         Given
@@ -30,6 +34,7 @@ public class Get03 extends BaseUrls {
         //1. Step: Set the Url
         // String url = "https://jsonplaceholder.typicode.com/todos/23"; //Önerilmiyor.
         spec.pathParams("first","todos","second", 23);
+       // spec.pathParam("first","todos");
 
         //2. Step: Set the expected data
 

@@ -1,3 +1,5 @@
+package get_requests;
+
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -39,11 +41,11 @@ public class Get02 {
         response.prettyPrint();
 
         // iv) Do Assertion
-        response.then().assertThat().statusCode(200).statusLine("HTTP/1.1 200 OK");
+        response.then().assertThat().statusCode(404).statusLine("HTTP/1.1 404 Not Found");
 
         //Response body'de bulunan specifik bir veri nasil assert edilir:
         //assertTrue() methodu parantezin icindeki deger true ise testi gecirir.
-         assertFalse( response.asString().contains("Not Found"));
+         assertTrue( response.asString().contains("Not Found"));
 
         //Response body'de specifik bir veri bulunmadigini nasil assert edilir:
         //assertFalse() methodu parantezin icindeki deger false ise testi gecirir.

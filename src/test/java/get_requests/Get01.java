@@ -1,3 +1,5 @@
+package get_requests;
+
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class Get01 {
                   'Gherkin' bazı keywordlere sahip, bunlar:
                   x) Given: Ön koşullar
                   y) When: Aksiyonlar-->Get, Put, ...
-                  z) Then: Dönütler--> Assert,Doğrulama, response, ...
+                  z) Then: Dönütler--> Assert ...
                   t) And: Çoklu işlemler için kullanılır.
 
             c) Testing kodunun yazımı

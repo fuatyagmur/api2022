@@ -25,10 +25,10 @@ public class Get05 extends HerOkuAppBaseUrl {
 
         //1. Step: Set the Url
 
-        //https://restful-booker.herokuapp.com/booking?firstname=Aaron&lastname=Chen
+        //https://restful-booker.herokuapp.com/booking?firstname=Christopher&lastname=Davis
         spec.pathParam("first","booking").
-                queryParams("firstname", "GGS",
-                        "lastname", "FINCH");
+                queryParams("firstname", "Christopher",
+                        "lastname", "Davis");
 
 
         //2. Step: Set the expected data

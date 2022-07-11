@@ -15,7 +15,7 @@ public class Get06 extends HerOkuAppBaseUrl {
 
     /*
         Given
-            https://restful-booker.herokuapp.com/booking/101
+            https://restful-booker.herokuapp.com/booking/2385
         When
             User send a GET request to the URL
         Then
@@ -25,13 +25,13 @@ public class Get06 extends HerOkuAppBaseUrl {
         And
             Response body should be like;
           {
-            "firstname": "GGS",
-            "lastname": "FINCH",
-            "totalprice": 111,
+            "firstname": "Irene",
+            "lastname": "Jiménez",
+            "totalprice": 211,
             "depositpaid": true,
             "bookingdates": {
-                "checkin": "2018-01-01",
-                "checkout": "2019-01-01"
+                "checkin": "2022-07-11",
+                "checkout": "2022-07-22"
             }
 
         }
@@ -41,7 +41,7 @@ public class Get06 extends HerOkuAppBaseUrl {
 
         //1. Step: Set the Url
 
-        spec.pathParams("first","booking", "second", 101);
+        spec.pathParams("first","booking", "second", 2385);
         //2. Set the expected data
 
         //3. Step: Send the request and get the response
@@ -55,22 +55,22 @@ public class Get06 extends HerOkuAppBaseUrl {
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("firstname",equalTo("GGS"),
-                        "lastname",equalTo("FINCH"),
-                        "totalprice", equalTo(111),
+                body("firstname",equalTo("Irene"),
+                        "lastname",equalTo("Jiménez"),
+                        "totalprice", equalTo(211),
                         "depositpaid", equalTo(true),
-                        "bookingdates.checkin",equalTo("2018-01-01"),
-                        "bookingdates.checkout",equalTo("2019-01-01"));
+                        "bookingdates.checkin",equalTo("2022-07-11"),
+                        "bookingdates.checkout",equalTo("2022-07-22"));
 
         //2. Yol: JsonPath Class kullanılır
 
         JsonPath json = response.jsonPath();
-        assertEquals("GGS", json.getString("firstname"));
-        assertEquals("FINCH", json.getString("lastname"));
-        assertEquals(111, json.getInt("totalprice"));
+        assertEquals("Irene", json.getString("firstname"));
+        assertEquals("Jiménez", json.getString("lastname"));
+        assertEquals(211, json.getInt("totalprice"));
         assertEquals(true, json.getBoolean("depositpaid"));
-        assertEquals("2018-01-01", json.getString("bookingdates.checkin"));
-        assertEquals("2019-01-01",json.getString("bookingdates.checkout"));
+        assertEquals("2022-07-11", json.getString("bookingdates.checkin"));
+        assertEquals("2022-07-22",json.getString("bookingdates.checkout"));
 
         //3. Yol: Soft Assertion
         //Soft Assertion için 3 adım izlenir;
@@ -80,12 +80,12 @@ public class Get06 extends HerOkuAppBaseUrl {
 
         //2) Obje aracılığı ile assert yapılır.
 
-        softAssert.assertEquals(json.getString("firstname"), "GGS","firstname uyuşmadı");
-        softAssert.assertEquals(json.getString("lastname"),"FINCH","lastname uyuşmadı");
-        softAssert.assertEquals(json.getInt("totalprice"),111,"totalprice uyuşmadı");
+        softAssert.assertEquals(json.getString("firstname"), "Irene","firstname uyuşmadı");
+        softAssert.assertEquals(json.getString("lastname"),"Jiménez","lastname uyuşmadı");
+        softAssert.assertEquals(json.getInt("totalprice"),211,"totalprice uyuşmadı");
         softAssert.assertEquals(json.getBoolean("depositpaid"),true,"depositpaid uyuşmadı");
-        softAssert.assertEquals(json.getString("bookingdates.checkin"),"2018-01-01","checkin uyuşmadı");
-        softAssert.assertEquals(json.getString("bookingdates.checkout"),"2019-01-01","checkout uyuşmadı");
+        softAssert.assertEquals(json.getString("bookingdates.checkin"),"2022-07-11","checkin uyuşmadı");
+        softAssert.assertEquals(json.getString("bookingdates.checkout"),"2022-07-22","checkout uyuşmadı");
 
         //3) assertAll() methodu kullanılır. Aksi taktirde kod her zaman pass olur.
         softAssert.assertAll();

@@ -49,6 +49,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         JsonPath json = response.jsonPath();
         List<Integer> ids = json.getList("findAll{it.id>190}.id");//Groovy Language = Java temelli bir proglamlama dili
         System.out.println(ids);
+        // Note: "findAll{it.id==190}.id"  == esit olani bumak icin kullaniriz
         //Assert that there are 10 ids greater than 190
         assertEquals(10,ids.size());
 
